@@ -1,15 +1,29 @@
-# DevDraft Python SDK
+# Devdraft Python SDK
 
-The official Python SDK for the DevDraft AI Payment & Business Management API.
+The official Python SDK for the Devdraft Payment & Business Management API.
 
 ## Installation
 
+### From PyPI (Recommended)
 ```bash
 pip install devdraft-ai-sdk
 ```
 
+### From Source
+```bash
+# Clone the repository
+git clone https://github.com/devraftengineer/devdraft-sdk-python.git
+
+# Navigate to the project directory
+cd devdraft-sdk-python
+
+# Install the package
+pip install -e .
+```
+
 ## Quick Start
 
+### Basic Setup
 ```python
 from devdraft_ai_sdk import ApiClient, Configuration
 from devdraft_ai_sdk.api import DefaultApi
@@ -23,19 +37,54 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Create API client
 api_client = ApiClient(configuration)
 api = DefaultApi(api_client)
+```
 
-# Make API calls
+### Example: Create a Payment Intent
+```python
+from devdraft_ai_sdk.models import CreateStablePaymentIntentDto
+
+# Create a payment intent
+payment_intent = CreateStablePaymentIntentDto(
+    amount=100.00,
+    currency="USD",
+    description="Payment for services"
+)
+
 try:
-    # Example: Get account balance
-    balance = api.get_balance()
-    print(f"Current balance: {balance}")
+    response = api.create_payment_intent(payment_intent)
+    print(f"Payment Intent created: {response.id}")
 except Exception as e:
-    print(f"Error: {e}")
+    print(f"Error creating payment intent: {e}")
+```
+
+### Example: Get Account Balance
+```python
+try:
+    balance = api.get_balance()
+    print(f"Current balance: {balance.amount} {balance.currency}")
+except Exception as e:
+    print(f"Error getting balance: {e}")
+```
+
+### Example: Create a Customer
+```python
+from devdraft_ai_sdk.models import CreateCustomerDto
+
+customer = CreateCustomerDto(
+    email="customer@example.com",
+    name="John Doe"
+)
+
+try:
+    response = api.create_customer(customer)
+    print(f"Customer created: {response.id}")
+except Exception as e:
+    print(f"Error creating customer: {e}")
 ```
 
 ## Features
 
-- Full support for all DevDraft API endpoints
+- Full support for all Devdraft API endpoints
 - Automatic request/response serialization
 - Built-in error handling
 - Type hints for better IDE support
@@ -49,17 +98,45 @@ except Exception as e:
 - certifi
 - python-dateutil
 
+## Development
+
+### Setting up the development environment
+```bash
+# Clone the repository
+git clone https://github.com/devraftengineer/devdraft-sdk-python.git
+
+# Create a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install development dependencies
+pip install -r requirements.txt
+pip install -r test-requirements.txt
+```
+
+### Running tests
+```bash
+# Run all tests
+python -m pytest
+
+# Run specific test file
+python -m pytest test/test_payment_intents_api.py
+```
+
 ## Documentation
 
-For detailed documentation, please visit our [API Documentation](https://docs.devdraft.ai).
+For detailed API documentation, please visit our [API Documentation](https://docs.devdraft.ai).
 
 ## Support
 
-If you need help or have questions, please contact us at support@devdraft.ai or open an issue on our [GitHub repository](https://github.com/devraftengineer/devdraft-sdk-python).
+If you need help or have questions, please:
+- Open an issue on our [GitHub repository](https://github.com/devraftengineer/devdraft-sdk-python)
+- Contact us at support@devdraft.ai
+- Join our [Discord community](https://discord.gg/devdraft)
 
 ## License
 
-This SDK is licensed under the MIT License. See the LICENSE file for details.
+This SDK is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 # devdraft-ai-python-sdk
  A comprehensive payment processing and business management API that enables seamless integration of cryptocurrency and traditional payment methods.     

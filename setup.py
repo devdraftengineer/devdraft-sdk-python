@@ -12,8 +12,8 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "devdraft-ai-sdk"
-VERSION = "1.0.0"
+NAME = "devdraft-sdk"
+VERSION = "1.0.1"
 # To install the library, run the following
 #
 # python setup.py install
@@ -27,12 +27,13 @@ setup(
     name=NAME,
     version=VERSION,
     description="Devdraft AI Payment & Business Management API",
-    author="DevDraft",
-    author_email="support@devdraft.ai",
+    author="Devdraft",
+    author_email="engineering@devdraft.ai",
     url="https://github.com/devraftengineer/devdraft-sdk-python",
-    keywords=["DevDraft", "API", "Payment", "Business Management"],
+    download_url="https://github.com/devraftengineer/devdraft-sdk-python/archive/refs/tags/v{}.tar.gz".format(VERSION),
+    keywords=["Devdraft", "API", "Payment", "Business Management"],
     install_requires=REQUIRES,
-    packages=find_packages(),
+    packages=find_packages(exclude=["examples", "examples.*"]),
     include_package_data=True,
     long_description="""\
     A comprehensive payment processing and business management API that enables seamless integration of cryptocurrency and traditional payment methods.

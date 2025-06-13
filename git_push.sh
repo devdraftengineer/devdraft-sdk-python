@@ -6,7 +6,7 @@
 # Set repository details
 GIT_USER_ID="devraftengineer"
 GIT_REPO_ID="devdraft-sdk-python"
-RELEASE_NOTE="Initial release: DevDraft Python SDK"
+RELEASE_NOTE="Initial release: Devdraft Python SDK"
 GIT_REPO_BASE_URL="github.com"
 
 # Initialize the local directory as a Git repository

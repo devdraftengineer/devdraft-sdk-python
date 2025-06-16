@@ -1,6 +1,6 @@
 # coding: utf-8
 """
-    Devdraft AI Payment & Business Management API
+    Devdraft Payment & Business Management API
 
      A comprehensive payment processing and business management API that enables seamless integration of cryptocurrency and traditional payment methods.       # noqa: E501
 

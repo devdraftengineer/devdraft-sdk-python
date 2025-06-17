@@ -13,7 +13,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "devdraft-sdk"
-VERSION = "1.0.4"
+VERSION = "1.0.5"
 # To install the library, run the following
 #
 # python setup.py install
@@ -21,15 +21,15 @@ VERSION = "1.0.4"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
+REQUIRES = ["urllib3 >= 1.25.3", "python-dateutil", "pydantic", "aenum"]
 
 setup(
     name=NAME,
     version=VERSION,
-    description="Devdraft Payment & Business Management API",
-    author="Devdraft",
-    author_email="engineering@devdraft.ai",
-    url="https://github.com/devraftengineer/devdraft-sdk-python",
+    description="DevDraft SDK for Python",
+    author="DevDraft",
+    author_email="support@devdraft.ai",
+    url="https://devdraft.ai",
     download_url="https://github.com/devraftengineer/devdraft-sdk-python/archive/refs/tags/v{}.tar.gz".format(VERSION),
     keywords=["Devdraft", "API", "Payment", "Business Management"],
     install_requires=REQUIRES,
@@ -109,4 +109,7 @@ For support, please visit our [documentation](https://docs.devdraft.ai) or conta
         "Programming Language :: Python :: 3.9",
     ],
     python_requires=">=3.6",
+    package_data={
+        "devdraft_sdk": ["py.typed"],
+    },
 )

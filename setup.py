@@ -13,7 +13,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "devdraft-sdk"
-VERSION = "1.0.5"
+VERSION = "1.0.6"
 # To install the library, run the following
 #
 # python setup.py install
@@ -72,15 +72,16 @@ easy_install devdraft-sdk
 To use the SDK, you'll need to configure it with your API credentials:
 
 ```python
-import devdraft_ai_sdk
+import devdraft_sdk
 
 # Configure API client
-configuration = devdraft_ai_sdk.Configuration()
+configuration = devdraft_sdk.Configuration()
+configuration.host = "https://admin.devdraft.ai"  # Set the correct API address
 configuration.api_key['x-client-key'] = 'YOUR_CLIENT_KEY'
 configuration.api_key['x-client-secret'] = 'YOUR_CLIENT_SECRET'
 
 # Create API client instance
-api_client = devdraft_ai_sdk.ApiClient(configuration)
+api_client = devdraft_sdk.ApiClient(configuration)
 ```
 
 For detailed API documentation and examples, visit our [API Reference](https://docs.devdraft.ai).
